@@ -5,8 +5,11 @@
     "${toString modulesPath}/profiles/minimal.nix"
   ];
 
-  fileSystems."/".device = "/dev/sda3";
-  boot.loader.systemd-boot.enable = true;
+  fileSystems."/" = {
+    device = "/dev/sda3";
+    fsType = "ext4";
+  };
+  boot.loader.grub.device = "/dev/sda";
 
   networking.hostName = inputs.serverConfig.hostname;
 
