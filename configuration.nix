@@ -5,6 +5,9 @@
     "${toString modulesPath}/profiles/minimal.nix"
   ];
 
+  fileSystems."/".device = "/dev/sda3";
+  boot.loader.systemd-boot.enable = true;
+
   networking.hostName = inputs.serverConfig.hostname;
 
   users.users = inputs.serverConfig.users;
