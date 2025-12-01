@@ -3,7 +3,6 @@
   imports = [
     ./git.nix
     "${toString modulesPath}/profiles/minimal.nix"
-    "${toString modulesPath}/profiles/headless.nix"
   ];
 
   networking.hostName = inputs.serverConfig.hostname;
