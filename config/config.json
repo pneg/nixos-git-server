@@ -1,0 +1,20 @@
+{
+  "repository": "github:pneg/nixos-git-server",
+  "hostname": "stomach",
+  "sshPorts": [ 22 ],
+  "diskSize": 4096,
+  "users": {
+    "sysadmin": {
+      "isNormalUser": true,
+      "extraGroups": [ "wheel" ],
+      "initialPassword": "changeme",
+      "openssh": {
+        "authorizedKeys": {
+          "keys": [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKNKG7Mdn+6p5XI2WA3OwGU29Tf5nBXN3J1BIYYtZc5e user@desktop" ]
+        }
+      }
+    }
+  },
+  "sshUsers": [ "sysadmin" ],
+  "gitoliteAdminPubkey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKNKG7Mdn+6p5XI2WA3OwGU29Tf5nBXN3J1BIYYtZc5e user@desktop"
+}
