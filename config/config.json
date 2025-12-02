@@ -1,7 +1,7 @@
 {
   "repository": "github:pneg/nixos-git-server",
   "hostname": "stomach",
-  "sshPorts": [ 20, 21, 22, 80, 443 ],
+  "sshPorts": [ 22 ],
   "diskSize": 4096,
   "users": {
     "sysadmin": {
