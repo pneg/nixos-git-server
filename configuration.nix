@@ -1,14 +1,21 @@
 { config, lib, pkgs, modulesPath, inputs, ... }: {
 
   imports = [
+    (modulesPath + "/profiles/qemu-guest.nix")
+    (modulesPath + "/profiles/minimal.nix")
     ./git.nix
-    "${toString modulesPath}/profiles/minimal.nix"
   ];
 
   fileSystems."/" = {
-    device = "/dev/sda3";
+    label = "nixos";
+    autoResize = true;
     fsType = "ext4";
   };
+  # fileSystems."/boot" = {
+  #   label = "ESP";
+  #   fsType = "vfat";
+  #   options = [ "fmask=0077" "dmask=0077" ];
+  # };
   boot.loader.grub.device = "/dev/sda";
 
   networking.hostName = inputs.serverConfig.hostname;
